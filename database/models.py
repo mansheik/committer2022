@@ -41,7 +41,6 @@ def db_drop_and_create_all():
 
     enquirer = Enquiry(
         name="Alawiyah Abdulwahab",
-        age=50,
         education="Doctorate",
         email="alawiyah@uum.edu.my",
         region="asia",
@@ -87,7 +86,6 @@ class User(db.Model):
 class Enquiry(db.Model):
     id = Column(Integer().with_variant(Integer, "sqlite"), primary_key=True)
     name = Column(String(200))
-    age = Column(Integer)
     education = Column(String(20))
     email = Column(String(120))
     region = Column(String(20))
@@ -95,7 +93,6 @@ class Enquiry(db.Model):
     int_learn = Column(Float)
     dev_inv = Column(Float)
     proj_desertion = Column(Integer)
-    dev_status = Column(String(20))
     dev_experience = Column(Integer)
     sys_int = Column(Float)
     tech_norm = Column(Float)
@@ -111,7 +108,6 @@ class Enquiry(db.Model):
         return {
             'e_id': self.id,
             'name': self.name.capitalize(),
-            'age': self.age,
             'education': self.education.capitalize(),
             'email': self.email,
             'region': self.region.capitalize(),
@@ -119,7 +115,6 @@ class Enquiry(db.Model):
             'int_learn': self.int_learn,
             'dev_inv': self.dev_inv,
             'proj_desertion': self.proj_desertion,
-            'dev_status': self.dev_status.capitalize(),
             'dev_experience': self.dev_experience,
             'sys_int': self.sys_int,
             'tech_norm': self.tech_norm,
