@@ -3,6 +3,7 @@
 #----------------------------------------------------------------------------#
 import os, csv
 from flask import Flask, request, render_template, redirect, url_for, flash, session, send_file, jsonify, abort
+from flask_cors import CORS
 from flask_session import Session
 from tempfile import mkdtemp
 from database.models import db, setup_db, db_drop_and_create_all, User, Enquiry
@@ -33,6 +34,7 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 setup_db(app)
+CORS(app, resources={r"*": {"origins": "*"}})
 
 with app.app_context():
   db_drop_and_create_all()
@@ -46,6 +48,16 @@ print(UPLOAD_FOLDER)
 #----------------------------------------------------------------------------#
 # App Routes.
 #----------------------------------------------------------------------------#
+
+@app.after_request
+def after_request(response):
+    response.headers.add(
+        "Access-Control-Allow-Headers", "Content-Type,Authorization,true"
+    )
+    response.headers.add(
+        "Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS,PATCH"
+    )
+    return response
 
 # File_prediction route
 @app.route('/from_file', methods=['GET','POST'])
@@ -111,7 +123,6 @@ def prefict():
 
         enquirer.promoted = True
         db.session.commit()
-        print(enquirer)
         status = f"Congratulate {name}!! He is Promoted" if pred_data == 1 else f"Sorry {name}!! Not Promoted"
         flash({'type': "success" if pred_data == 1 else "error", 'msg': status})
         return jsonify({
