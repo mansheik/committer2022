@@ -11456,3 +11456,77 @@ header.masthead h1, header.masthead .h1 {
 #portfolio .container-fluid .portfolio-box:hover .portfolio-box-caption, #portfolio .container-sm .portfolio-box:hover .portfolio-box-caption, #portfolio .container-md .portfolio-box:hover .portfolio-box-caption, #portfolio .container-lg .portfolio-box:hover .portfolio-box-caption, #portfolio .container-xl .portfolio-box:hover .portfolio-box-caption, #portfolio .container-xxl .portfolio-box:hover .portfolio-box-caption {
   opacity: 1;
 }
+
+.survey {
+  /*background-color: #b8c6db;*/
+  background-image: linear-gradient(250deg, #e9edf4 0%, #f5f7fa 10%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.quiz-container {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1);
+  width: 900px;
+  overflow: hidden;
+}
+
+.quiz-container .quiz-header {
+  padding: 1rem;
+}
+
+.quiz-container h2 {
+  padding: 1rem;
+  text-align: center;
+  margin: 0;
+  font-size: 20px;
+}
+
+.quiz-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.quiz-container ul li {
+  font-size: 1rem;
+  margin: .7rem 1.2rem;
+}
+
+.quiz-container ul li label {
+  cursor: pointer;
+}
+
+.quiz-container button {
+  background-color: #198754;;
+  color: #fff;
+  border: none;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: inherit;
+  padding: 1.3rem;
+}
+
+.quiz-container button:hover {
+  background-color: #0c3623;
+}
+
+.quiz-container button:focus {
+  outline: none;
+  background-color: #198754;
+}
+
+#survey-home-link {
+  text-decoration: none;
+}
+
+#survey-home-link:hover {
+  text-decoration: none;
+  color: darkgreen;
+}
