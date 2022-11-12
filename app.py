@@ -34,7 +34,8 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 setup_db(app)
 
-db_drop_and_create_all()
+with app.app_context():
+  db_drop_and_create_all()
 
 # use session
 @app.before_first_request  # runs before FIRST request (only once)
@@ -291,3 +292,10 @@ def not_found(error):
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+# For replit
+# if __name__ == "__main__":  # Makes sure this is the main process
+#     app.run( # Starts the site
+#         host='0.0.0.0',  # EStablishes the host, required for repl to detect the site
+#         port=random.randint(2000, 9000)  # Randomly select the port the machine hosts on.
+#     )
