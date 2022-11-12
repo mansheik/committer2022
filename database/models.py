@@ -33,7 +33,7 @@ def db_drop_and_create_all():
     db.session.add(admin2)
     admin1 = User(
         username="alawiyah",
-        name="alawiyah Bt abd wahab",
+        name="alawiyah Bt abdulwahab",
         email="alawiyah@uum.edu.my",
         password=generate_password_hash("adminpass1")
     )
@@ -48,7 +48,6 @@ def db_drop_and_create_all():
         int_learn=4,
         dev_inv=4,
         proj_desertion=4,
-        dev_status="Maturity",
         dev_experience=4,
         sys_int=3,
         tech_norm=3,
@@ -59,7 +58,28 @@ def db_drop_and_create_all():
         promoted=0,
         date_submitted=date.today()
     )
+
+    enquirer1 = Enquiry(
+        name="Jamilu Tahir",
+        education="Doctorate",
+        email="jamiltahir010@gmail.com",
+        region="africa",
+        fin_gain=6,
+        int_learn=6,
+        dev_inv=6,
+        proj_desertion=2,
+        dev_experience=5,
+        sys_int=6,
+        tech_norm=6,
+        code_test=6,
+        cont_code_dec=6,
+        dec_right_del=6,
+        proj_age=6,
+        promoted=0,
+        date_submitted=date.today()
+    )
     db.session.add(enquirer)
+    db.session.add(enquirer1)
     db.session.commit()
 
 
