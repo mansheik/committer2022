@@ -1,20 +1,5 @@
-#----------------------------------------------------------------------------#
-# Imports.
-#----------------------------------------------------------------------------#
-import os, csv
-from flask import Flask, request, render_template, redirect, url_for, flash, session, send_file, jsonify, abort
-from flask_cors import CORS
-from flask_session import Session
-from tempfile import mkdtemp
-from database.models import db, setup_db, db_drop_and_create_all, User, Enquiry
-from auth import login_required
-from werkzeug.security import check_password_hash
-from datetime import timedelta, date
-from Prediction_of_UserInput.prediction_file import Prediction_from_api
-from Prediction_from_file.prediction_from_file import Prediction_from_file
-from File_operation import file_op
-from werkzeug.utils import secure_filename
 
+from flask import Flask
 
 app = Flask(__name__)
 
