@@ -20,7 +20,8 @@ DB_NAME=os.getenv("DB_NAME")
 DB_PORT=os.getenv("DB_PORT")
 
 database_name = DB_NAME
-database_path = f"{DB_DIALECT}://{DB_USERNAME}:{DB_PASSWORD}@{DB_SERVER}:{DB_PORT}/{DB_NAME}"
+# database_path = f"{DB_DIALECT}://{DB_USERNAME}:{DB_PASSWORD}@{DB_SERVER}:{DB_PORT}/{DB_NAME}"
+database_path = f"postgresql://mbwpmhcftvzemp:efb770d6b73df787043549fb28d99251a0239998bc8eeeb6faa46f319a1b167f@ec2-52-200-5-135.compute-1.amazonaws.com:5432/dfkqfg5ui1kt9h"
 db = SQLAlchemy()
 
 
