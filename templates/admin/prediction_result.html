@@ -26,7 +26,12 @@
                     {% endif %}
                   {% endfor %}
                 {% else %}
-                <script type="text/javascript">window.location.href = '/dashboard'</script>
+                <!-- <script type="text/javascript">window.location.href = '/dashboard'</script> -->
+                <div class="alert alert-warning alert-dismissible fade show mb-5" role="alert">
+                  <i class="bi bi-exclamation-triangle me-1"></i>
+                  DATA NOT SENT
+                </div>
+                <center><a class="btn btn-secondary" href="{{url_for('dashboard')}}">Go Back</a></center>
                 {% endif %}
               {% endwith %}
             </div>

@@ -1,15 +1,26 @@
 import os
 from sqlalchemy import Column, String, Integer, Float, Date, Boolean
 from flask_sqlalchemy import SQLAlchemy
+from dotenv import load_dotenv
 from flask import json
 from werkzeug.security import generate_password_hash
 from datetime import date
+load_dotenv()
 
-database_filename = "database.db"
-project_dir = os.path.dirname(os.path.abspath(__file__))
-database_path = "sqlite:///{}".format(
-    os.path.join(project_dir, database_filename))
+# database_filename = "database.db"
+# project_dir = os.path.dirname(os.path.abspath(__file__))
+# database_path = "sqlite:///{}".format(
+#     os.path.join(project_dir, database_filename))
 
+DB_DIALECT=os.getenv("DB_DIALECT")
+DB_USERNAME=os.getenv("DB_USERNAME")
+DB_PASSWORD=os.getenv("DB_PASSWORD")
+DB_SERVER=os.getenv("DB_SERVER")
+DB_NAME=os.getenv("DB_NAME")
+DB_PORT=os.getenv("DB_PORT")
+
+database_name = DB_NAME
+database_path = f"{DB_DIALECT}://{DB_USERNAME}:{DB_PASSWORD}@{DB_SERVER}:{DB_PORT}/{DB_NAME}"
 db = SQLAlchemy()
 
 
@@ -84,7 +95,9 @@ def db_drop_and_create_all():
 
 
 class User(db.Model):
-    id = Column(Integer().with_variant(Integer, "sqlite"), primary_key=True)
+    __tablename__ = 'users'
+
+    id = Column(Integer, primary_key=True)
     username = Column(String(80))
     name = Column(String(200))
     email = Column(String(120))
@@ -104,7 +117,7 @@ class User(db.Model):
 
 
 class Enquiry(db.Model):
-    id = Column(Integer().with_variant(Integer, "sqlite"), primary_key=True)
+    id = Column(Integer, primary_key=True)
     name = Column(String(200))
     education = Column(String(20))
     email = Column(String(120))

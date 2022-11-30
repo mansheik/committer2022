@@ -29,15 +29,18 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
 # Configure session to use filesystem (instead of signed cookies)
-app.config["SESSION_FILE_DIR"] = mkdtemp()
-app.config["SESSION_PERMANENT"] = False
-app.config["SESSION_TYPE"] = "filesystem"
+# app.config["SESSION_FILE_DIR"] = mkdtemp()
+# app.config["SESSION_TYPE"] = "filesystem"
+app.secret_key = 'I can see what you are doi'
+app.config["SESSION_PERMANENT"] = True
+app.config['SESSION_TYPE'] = 'filesystem'
 Session(app)
 setup_db(app)
 CORS(app, resources={r"*": {"origins": "*"}})
 
 with app.app_context():
   db_drop_and_create_all()
+db_drop_and_create_all()
 
 # use session
 @app.before_first_request  # runs before FIRST request (only once)
@@ -102,7 +105,7 @@ def from_file():
 
 # API route
 @app.route('/api', methods=['POST'])
-@login_required
+# @login_required
 def prefict():
     try:
         e_id = int(request.form['e_id'])
@@ -279,6 +282,12 @@ def status_file():
         current_page="File Prediction Status",
         user=user_data, noti=numberOfnoti)
 
+# Reset the database
+@app.route('/reset')
+def reset_db():
+    db_drop_and_create_all()
+    print("database reset.")
+    return jsonify({'success': True})
 
 # logout route
 @app.route('/logout')
@@ -302,7 +311,9 @@ def not_found(error):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # app.run(debug=True)
+    port_nr = int(os.environ.get("PORT", 5001))
+    app.run(port=port_nr, host='0.0.0.0')
 
 # For replit
 # if __name__ == "__main__":  # Makes sure this is the main process
