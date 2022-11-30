@@ -8,4 +8,4 @@ DEBUG = True
 
 # Connect to the database
 
-SQLALCHEMY_DATABASE_URI = "postgres://mbwpmhcftvzemp:efb770d6b73df787043549fb28d99251a0239998bc8eeeb6faa46f319a1b167f@ec2-52-200-5-135.compute-1.amazonaws.com:5432/dfkqfg5ui1kt9h"
+SQLALCHEMY_DATABASE_URI = "postgresql://mbwpmhcftvzemp:efb770d6b73df787043549fb28d99251a0239998bc8eeeb6faa46f319a1b167f@ec2-52-200-5-135.compute-1.amazonaws.com:5432/dfkqfg5ui1kt9h"
