@@ -21,7 +21,7 @@ DB_PORT=os.getenv("DB_PORT")
 
 database_name = DB_NAME
 # database_path = f"{DB_DIALECT}://{DB_USERNAME}:{DB_PASSWORD}@{DB_SERVER}:{DB_PORT}/{DB_NAME}"
-database_path = os.environ("DATABASE_URL")
+database_path = os.environ.get("DATABASE_URL")
 db = SQLAlchemy()
 
 
