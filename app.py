@@ -26,7 +26,7 @@ def index():
 
 if __name__ == '__main__':
     # app.run(debug=True)
-    port_nr = int(os.environ.get("PORT", 5000))
+    port_nr = int(os.environ.get("PORT"))
     app.run(port=port_nr, host='0.0.0.0')
 
 # For replit
