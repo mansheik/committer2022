@@ -38,8 +38,8 @@ Session(app)
 setup_db(app)
 CORS(app, resources={r"*": {"origins": "*"}})
 
-with app.app_context():
-  db_drop_and_create_all()
+# with app.app_context():
+#   db_drop_and_create_all()
 # db_drop_and_create_all()
 
 # use session
