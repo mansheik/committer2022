@@ -283,11 +283,11 @@ def status_file():
         user=user_data, noti=numberOfnoti)
 
 # Reset the database
-@app.route('/reset')
-def reset_db():
-    db_drop_and_create_all()
-    print("database reset.")
-    return jsonify({'success': True})
+# @app.route('/reset')
+# def reset_db():
+#     db_drop_and_create_all()
+#     print("database reset.")
+#     return jsonify({'success': True})
 
 # logout route
 @app.route('/logout')
