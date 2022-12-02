@@ -33,67 +33,67 @@ def setup_db(app):
     db.init_app(app)
 
 
-def db_drop_and_create_all():
-    db.drop_all()
-    db.create_all()
+# def db_drop_and_create_all():
+#     db.drop_all()
+#     db.create_all()
 
-    admin2 = User(
-        username="shehu",
-        name="shehu malami",
-        email="stjabo@jamail.com",
-        password=generate_password_hash("adminpass")
-    )
-    db.session.add(admin2)
-    admin1 = User(
-        username="alawiyah",
-        name="alawiyah Bt abdulwahab",
-        email="alawiyah@uum.edu.my",
-        password=generate_password_hash("adminpass1")
-    )
-    db.session.add(admin1)
+#     admin2 = User(
+#         username="shehu",
+#         name="shehu malami",
+#         email="stjabo@jamail.com",
+#         password=generate_password_hash("adminpass")
+#     )
+#     db.session.add(admin2)
+#     admin1 = User(
+#         username="alawiyah",
+#         name="alawiyah Bt abdulwahab",
+#         email="alawiyah@uum.edu.my",
+#         password=generate_password_hash("adminpass1")
+#     )
+#     db.session.add(admin1)
 
-    enquirer = Enquiry(
-        name="Alawiyah Abdulwahab",
-        education="Doctorate",
-        email="alawiyah@uum.edu.my",
-        region="asia",
-        fin_gain=5,
-        int_learn=4,
-        dev_inv=4,
-        proj_desertion=4,
-        dev_experience=4,
-        sys_int=3,
-        tech_norm=3,
-        code_test=3,
-        cont_code_dec=3,
-        dec_right_del=3,
-        proj_age=5,
-        promoted=0,
-        date_submitted=date.today()
-    )
+#     enquirer = Enquiry(
+#         name="Alawiyah Abdulwahab",
+#         education="Doctorate",
+#         email="alawiyah@uum.edu.my",
+#         region="asia",
+#         fin_gain=5,
+#         int_learn=4,
+#         dev_inv=4,
+#         proj_desertion=4,
+#         dev_experience=4,
+#         sys_int=3,
+#         tech_norm=3,
+#         code_test=3,
+#         cont_code_dec=3,
+#         dec_right_del=3,
+#         proj_age=5,
+#         promoted=0,
+#         date_submitted=date.today()
+#     )
 
-    enquirer1 = Enquiry(
-        name="Jamilu Tahir",
-        education="Doctorate",
-        email="jamiltahir010@gmail.com",
-        region="africa",
-        fin_gain=6,
-        int_learn=6,
-        dev_inv=6,
-        proj_desertion=2,
-        dev_experience=5,
-        sys_int=6,
-        tech_norm=6,
-        code_test=6,
-        cont_code_dec=6,
-        dec_right_del=6,
-        proj_age=6,
-        promoted=0,
-        date_submitted=date.today()
-    )
-    db.session.add(enquirer)
-    db.session.add(enquirer1)
-    db.session.commit()
+#     enquirer1 = Enquiry(
+#         name="Jamilu Tahir",
+#         education="Doctorate",
+#         email="jamiltahir010@gmail.com",
+#         region="africa",
+#         fin_gain=6,
+#         int_learn=6,
+#         dev_inv=6,
+#         proj_desertion=2,
+#         dev_experience=5,
+#         sys_int=6,
+#         tech_norm=6,
+#         code_test=6,
+#         cont_code_dec=6,
+#         dec_right_del=6,
+#         proj_age=6,
+#         promoted=0,
+#         date_submitted=date.today()
+#     )
+#     db.session.add(enquirer)
+#     db.session.add(enquirer1)
+#     db.session.commit()
 
 
 class User(db.Model):
